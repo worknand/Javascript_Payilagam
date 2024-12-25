@@ -1,0 +1,35 @@
+<html>
+    <head>
+     <h1>Image Slider</h1>
+    </head>
+    <body>
+        <img  src="images/cardmail.jpg" id="image" alt="Imagebroken">
+        <br><br>
+        
+        
+        <script>
+      x=["images/cardmail.jpg" , "images/S45NA7B25U_page-0001.jpg" ,"images/WZ8YXTU7FU_page-0001.jpg"];
+      slide=document.getElementById("image");
+      count=0;
+      console.log(x.length);
+      function auto(){
+        count=count+1;
+        
+        
+        if(count<=x.length){
+        if(count==x.length){
+            count=0;
+            
+        }
+        console.log(count);
+        slide.src=x[count]
+        }
+        
+      }
+      setInterval(auto,2000);
+      
+      
+
+        </script>
+    </body>
+</html>

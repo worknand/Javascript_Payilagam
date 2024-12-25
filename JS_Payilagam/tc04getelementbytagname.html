@@ -1,0 +1,29 @@
+<html>
+    <head>
+     <h1>Get element By tagname</h1>
+    </head>
+    <body>
+        <input  placeholder="Enter firstname"><br>
+        <input  placeholder="Enter lastname"><br>
+        <input  placeholder="Enter countryname"><br>
+        <button onclick="check()">submit</button><br>
+        <br>
+        <p></p>
+        <p></p>
+        <p></p>
+        <script>
+            function check(){
+               box= document.getElementsByTagName("input");
+               data=document.getElementsByTagName("p");
+            //    data[0].innerHTML=box[0].value;
+            //    data[1].innerHTML=box[1].value;
+            //    data[2].innerHTML=box[2].value;
+
+            for (let index = 0; index < box.length; index++) {
+                data[index].innerHTML=box[index].value;
+                
+            }
+            }
+        </script>
+    </body>
+</html>

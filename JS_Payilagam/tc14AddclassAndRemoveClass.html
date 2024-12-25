@@ -1,0 +1,56 @@
+<html>
+    <head>
+     <h1>Add class And remove class</h1>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>   Name:   </td>
+                <td><input onmouseover="onMouseOver(0)"  onmouseout="onMouseOut(0)" /></td>
+                <td><p></p>
+                </td>
+            </tr>
+            <tr>
+                <td>   Father:   </td>
+                <td><input onmouseover="onMouseOver(1)"  onmouseout="onMouseOut(1)" /></td>
+                <td><p></p>
+                </td>
+            </tr>
+            <tr>
+                <td>   Mother:   </td>
+                <td><input onmouseover="onMouseOver(2)"  onmouseout="onMouseOut(2)" /></td>
+                <td><p></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>   Mobile:   </td>
+                <td><input onmouseover="onMouseOver(3)"  onmouseout="onMouseOut(3)" /></td>
+                <td><p></p>
+                </td>
+            </tr>
+        </table>
+       
+        
+        
+        <script>
+         x= document.getElementsByTagName("input");
+         y= document.getElementsByTagName("p");
+
+         function onMouseOver(i){
+            if(x[i].value==""){
+              y[i].innerHTML="Please Fill the data";
+            //   y[i].className="Show";  // for cssproperty
+            }
+         }
+
+         function onMouseOut(i){
+            y[i].innerHTML="";
+            // y[i].classList.remove("Show");  // for cssproperty
+
+         }
+      
+
+        </script>
+    </body>
+</html>

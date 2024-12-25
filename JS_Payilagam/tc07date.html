@@ -1,0 +1,41 @@
+<html>
+    <head>
+     <h1>Digital Clock</h1>
+    </head>
+    <body>
+        <p id="clock"></p>
+        <br>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        
+        <p></p>
+    </div>
+        <script>
+            function changeColor(){
+            date=new Date();
+            hour=date.getHours();
+            minute=date.getMinutes();
+            second=date.getSeconds();
+            time=date.toLocaleTimeString();
+           h= document.getElementById("clock");
+           h.innerHTML=time
+
+           if(second%2==0){
+            h.style.color="blue";
+           }
+           else{
+            h.style.color="brown";
+           }
+            
+        }
+        function start(){
+           clear=setInterval(changeColor,1000);
+            }
+
+            function stop(){
+                clearInterval(clear);
+            }
+
+        </script>
+    </body>
+</html>

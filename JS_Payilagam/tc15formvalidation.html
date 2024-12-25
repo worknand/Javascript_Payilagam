@@ -1,0 +1,56 @@
+<html>
+    <head>
+     <h1>Javascript Form Validation</h1>
+    </head>
+    <body>
+        <form action="images/cardmail.jpg"  onsubmit="return check()" autocomplete="off">
+        <table align="center" >
+            <tr>
+                <td>   Name: <span>***</span>  </td>
+                <td><input id="name" /></td>
+                
+                </td>
+            </tr>
+            <tr>
+                <td>   Father:   </td>
+                <td><input  /></td>
+              
+                </td>
+            </tr>
+            <tr>
+                <td>   Mother:   </td>
+                <td><input  /></td>
+                
+                </td>
+            </tr>
+
+            <tr>
+                <td>   Mobile: <span>***</span>   </td>
+                <td><input id="mobile" /></td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="SignUp"/></td>
+            </tr>
+        </table>
+       
+    </form>
+        
+        <script>
+       function check(){
+        name=document.getElementById("name").value;
+        mobile=document.getElementById("mobile").value;
+        if(name==""){
+            alert("Please fill the name");
+            return false;
+        }
+        else if(mobile==""){
+            alert("Please fill the mobile number");
+            return false;
+        }
+       }
+      
+
+        </script>
+    </body>
+</html>

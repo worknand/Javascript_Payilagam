@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript Form Validation Using Regex</title>
+</head>
+
+<body>
+    <h1>Javascript Form Validation Using Regex</h1>
+    <form action="images/cardmail.jpg" onsubmit="return check(event)" autocomplete="off">
+        <table align="center">
+            <tr>
+                <td>Name: <span>Alphabets only Allowed!!</span></td>
+                <td><input type="text" id="name" /></td>
+            </tr>
+            <tr>
+                <td>Email: <span>Use proper format!!!</span></td>
+                <td><input type="email" id="email" /></td>
+            </tr>
+            <tr>
+                <td>Password: <span>Use One Capital, Small, Number, and Special Characters</span></td>
+                <td><input type="password" oninput="checkPass()" onmouseout="mouseOut()" />
+                    <span id="span"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile: <span>10 digit number!!!</span></td>
+                <td><input type="tel" id="mobile" pattern="[0-9]{10}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="SignUp" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function checkPass() {
+            const password = document.getElementsByTagName("input")[2].value;
+            const length = password.length;
+
+            const span = document.getElementById("span");
+            if (length < 3) {
+                span.className = "Weak";
+                span.innerHTML = "Password is weak";
+            } else if (length >= 3 && length < 5) {
+                span.className = "medium";
+                span.innerHTML = "Password is medium";
+            } else if (length >= 5 && length <= 7) {
+                span.className = "Strong";
+                span.innerHTML = "Password is Strong";
+            } else if (length >= 8) {
+                span.className = "verystrong";
+                span.innerHTML = "Password is very strong";
+            }
+        }
+
+        function mouseOut() {
+            const span = document.getElementById("span");
+            span.classList.remove("Weak", "medium", "Strong", "verystrong");
+            span.innerHTML = "";
+        }
+
+        function check(event) {
+            event.preventDefault();
+
+            const x = document.getElementsByTagName("input");
+
+            const alpha = /^[A-Za-z]+$/;
+            const emailcheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const pass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,7}$/;
+            const numbers = /^[0-9]{10}$/;
+
+            if (x[0].value === "" || !alpha.test(x[0].value)) {
+                alert("Please fill a valid name");
+                x[0].focus();
+                return false;
+            }
+
+            if (x[1].value === "" || !emailcheck.test(x[1].value)) {
+                alert("Please fill a valid email ID");
+                x[1].focus();
+                return false;
+            }
+
+            if (x[2].value === "" || !pass.test(x[2].value)) {
+                alert("Password must include uppercase, lowercase, number, and special character.");
+                x[2].focus();
+                return false;
+            }
+
+            if (x[3].value === "" || !numbers.test(x[3].value)) {
+                alert("Please provide a 10-digit mobile number");
+                x[3].focus();
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

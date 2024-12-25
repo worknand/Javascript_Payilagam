@@ -1,0 +1,42 @@
+<html>
+    <head>
+     <h1>Alert and prompt</h1>
+    </head>
+    <body>
+        
+       <p id="p1"></p>
+       <button onclick="alertcall()">Alert</button>
+       <button onclick="confirmCall()">Confirm</button>
+       <button onclick="promptCall()">Prompt</button>
+        
+        <script>
+            function alertcall(){
+                alert("hi i am a alert");
+            }
+
+            function confirmCall(){
+              if( message= confirm("okay to proceed")){
+                document.getElementById("p1").innerHTML="Accepted";
+                console.log(message);
+              }
+              else{
+                document.getElementById("p1").innerHTML="Rejected";
+                console.log(message);
+              }
+               
+               
+            }
+            function promptCall(){
+                password=prompt("enter your number","");
+                if(password==12345){
+                    document.getElementById("p1").innerHTML="Valid"; 
+                }
+                else{
+                    document.getElementById("p1").innerHTML="InValid"; 
+                }
+            }
+       
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+     <h1>Refresh And Autorefresh</h1>
+    </head>
+    <body>
+        <h1 id="header">Refresh And Autorefresh</h1>
+       <input id="data" placeholder="Assign time to refresh">
+       <br>
+       <br>
+       <button onclick="refresh()">Click</button>
+        
+        <script>
+            function refresh(){
+            time=document.getElementById("data").value;
+            console.log(time);
+            
+            time=parseInt(time);
+          setTimeout("location.reload(true)",time*1000); //auto refresh with timeset
+           console.log(window.location.href);
+        //    if( setTimeout("location.reload(true)",time*1000))
+           if( setTimeout("location.assign('https://www.cricbuzz.com/')",time*1000))   // redirect page
+           {
+            document.getElementById("header").style.color="pink";
+           }
+            }
+
+            setInterval(refresh,2000);
+       
+
+        </script>
+    </body>
+</html>

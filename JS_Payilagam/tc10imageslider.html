@@ -1,0 +1,47 @@
+<html>
+    <head>
+     <h1>Image Slider</h1>
+    </head>
+    <body>
+        <img  src="images/cardmail.jpg" id="image" alt="Imagebroken">
+        <br><br>
+        <button onclick="backward()"> <span> < </span></button>
+        <button onclick="forward()"> <span> > </span></button>
+        
+        
+        <script>
+      x=["images/cardmail.jpg" , "images/S45NA7B25U_page-0001.jpg" ,"images/WZ8YXTU7FU_page-0001.jpg"];
+      slide=document.getElementById("image");
+      count=-1;
+      //slide.src=x[2];
+      // 0 1 2
+      console.log(x.length);
+      function forward(){
+        count=count+1;
+        
+        
+        if(count<=x.length){
+        if(count==x.length){
+            count=0;
+            
+        }
+        console.log(count);
+        slide.src=x[count]
+        }
+        
+      }
+
+      function backward(){
+        count=count-1;
+        if(count<=-1){
+            count=x.length-1;
+        }
+        console.log(count);
+        slide.src=x[count]
+      }
+      
+      
+
+        </script>
+    </body>
+</html>

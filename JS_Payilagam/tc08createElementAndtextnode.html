@@ -1,0 +1,24 @@
+<html>
+    <head>
+     <h1>Create Element And Textnode</h1>
+    </head>
+    <body>
+        <div id="mydiv">
+           
+        </div>
+        <input id="data" placeholder="Enter Data">
+        <br>
+        <button onclick="create()">Submit</button>
+        <script>
+         function create(){
+           textValue= document.getElementById("data").value;
+            textnode= document.createTextNode(textValue);// hello
+           paraElement= document.createElement("p"); //<p></p>
+           paraElement.appendChild(textnode); //<p>hello</p>
+           divdata=document.getElementById("mydiv");
+           divdata.appendChild(paraElement);
+         }
+
+        </script>
+    </body>
+</html>

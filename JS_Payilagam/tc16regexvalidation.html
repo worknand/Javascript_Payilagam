@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <h1>Javascript Form Validation Using Regex</h1>
+</head>
+
+<body>
+    <form action="images/cardmail.jpg" onsubmit="return check()" autocomplete="off">
+        <table align="center">
+            <tr>
+                <td> Name: <span>Alphabets only Allowed!!</span> </td>
+                <td><input type="text" id="name" /></td>
+            </tr>
+            <tr>
+                <td> Email: <span>Use proper format!!!</span> </td>
+                <td><input type="email" id="email" /></td>
+            </tr>
+            <tr>
+                <td> Password: <span>Use One Capital, Small, Number, and Special Characters</span> </td>
+                <td><input type="password"  oninput="checkPass()" onmouseout="mouseOut()" />
+                    <span id="span"></span></td>
+            </tr>
+            <tr>
+                <td> Mobile: <span>10 digit number!!!</span> </td>
+                <td><input type="tel" id="mobile"  /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="SignUp" /></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function checkPass(){
+           length= x[2].value.length;
+           if(length<3){
+            document.getElementById("span").className="Weak";
+            document.getElementById("span").innerHTML="Password is weak";
+           }
+           else if(length>=3 && length<5){
+            document.getElementById("span").className="medium";
+            document.getElementById("span").innerHTML="Password is medium";
+           }
+           else if(length>=5 && length<=7){
+            document.getElementById("span").className="Strong";
+            document.getElementById("span").innerHTML="Password is Strong";
+           }
+           else if(length>=8){
+            document.getElementById("span").className="verystrong";
+            document.getElementById("span").innerHTML="Password is verystrong";
+           }
+           
+        }
+        function mouseOut(){
+            document.getElementById("span").classList.remove("Weak","medium","Strong","verystrong",);
+            document.getElementById("span").innerHTML="";
+        }
+        function check() {
+            var x = document.getElementsByTagName("input");
+            console.log(x);
+
+            // Regular Expressions
+            var alpha = /^[A-Za-z]+$/;
+            var emailcheck = /^[a-zA-Z0-9_.]+@[a-z]+\.[a-z]+$/;
+            var pass = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,7}$/;
+            var numbers = /^([0-9]{10})+$/;
+
+            // Name validation
+            if (x[0].value == "") {
+                alert("Please fill name ");
+                return false;
+            }
+            if (!alpha.test(x[0].value)) {
+                alert("Use only alphabets for name");
+                return false;
+            }
+
+            // Email validation
+            if (x[1].value == "") {
+                alert("Please fill email ID");
+                return false;
+            }
+            if (!emailcheck.test(x[1].value)) {
+                alert("Please use a proper email format");
+                return false;
+            }
+
+            // Password validation
+            if (x[2].value == "") {
+                alert("Please fill password");
+                return false;
+            }
+            if (!pass.test(x[2].value)) {
+                alert("Password must include at least one uppercase letter, one lowercase letter, one number, and one special character.");
+                return false;
+            }
+
+            // Mobile number validation
+            if (x[3].value == "") {
+                alert("Please fill mobile number");
+                return false;
+            }
+            if (!numbers.test(x[3].value)) {
+                alert("Please provide a 10 digit mobile number");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
